@@ -31,6 +31,7 @@ print(actress.info())
 actress['birthday'] = pd.to_datetime(actress['birthday'], yearfirst=True)
 actress['age'] = 2020 - pd.DatetimeIndex(actress['birthday']).year
 print(actress.head())
+# actress['age'] = actress.age.fillna(35)
 print(actress.info())
 
 print(actress['age'].min())
