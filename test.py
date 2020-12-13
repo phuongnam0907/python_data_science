@@ -9,18 +9,19 @@ warnings.filterwarnings("ignore")
 
 data = pd.read_csv('data/data_csv/diemthidhqg2020_test.csv')
 
-ten = data['ho'].dropna()
+ten = data['ten'].dropna()
+# ten.to_csv('name.csv')
+# ten = ["Lê", "Phương", "Nam","Lê", "Nam","Lê", "Phương", "Nguyễn", "Thị", "Hồng", "Hoa"]
 ten_string = ' '.join(ten)
 # print(ten_string)
 
-rcParams['figure.figsize'] = 20,30
-mask = np.array(Image.open('vn.jpg'))
+rcParams['figure.figsize'] = 10,15
+mask = np.array(Image.open('vn_mask.jpg'))
 # wordcloud = WordCloud(max_words=len(ten), max_font_size=100, scale=20).generate(ten_string)
-wordcloud = WordCloud(max_words=len(ten), background_color="white", mask=mask, max_font_size=100, scale=8).generate(ten_string)
+wordcloud = WordCloud(max_words=len(ten), background_color="white", mask=mask, max_font_size=100, scale=8, collocations=False).generate(ten_string)
 
 plt.imshow(wordcloud)
 plt.axis('off')
-plt.savefig('ho.png')
 plt.show()
 
 # toan = data['toan_hoc'].dropna()
@@ -47,7 +48,7 @@ plt.show()
 # print(toan.value_counts())
 # # plt.plot(toan.value_counts().sort_index())
 # plt.show()
-
+#
 # import numpy as np
 # import pandas as pd
 # import matplotlib.pyplot as plt
